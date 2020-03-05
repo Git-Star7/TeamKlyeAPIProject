@@ -12,6 +12,7 @@ namespace GroupMovieAPIProject.Controllers
     public class FavoriteMoviesController : Controller
     {
         private readonly FavoriteMoviesDbContext _context;
+
         public FavoriteMoviesController(FavoriteMoviesDbContext context)
         {
             _context = context;

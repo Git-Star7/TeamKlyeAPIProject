@@ -12,5 +12,8 @@ namespace GroupMovieAPIProject.Models
         public string Released { get; set; }
         public string Actors { get; set; }
         public string Director { get; set; }
+        public string UserId { get; set; }
+
+        public virtual AspNetUsers User { get; set; }
     }
 }
