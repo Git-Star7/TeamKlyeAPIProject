@@ -26,7 +26,6 @@ namespace GroupMovieAPIProject.Controllers
         {
             return View();
         }
-
         public async Task<ActionResult> GetMovieBySearch(string search)
         {
             var client = new HttpClient();
@@ -37,7 +36,30 @@ namespace GroupMovieAPIProject.Controllers
             //ADD NUGET PACKAGE - Microsoft.aspnet.webapi.client
             var searchedMovies = await response.Content.ReadAsAsync<Movies>();
             return View(searchedMovies);
-            
+        }
+        public IActionResult AddToFavorites(Movies newFav)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Movies.Add(newFav);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("DisplayFavorites");
+        }
+        public IActionResult DisplayFavorites()
+        {
+            var movieList = _context.Movies.ToList();
+            return View(movieList);
+        }
+        public IActionResult DeleteFav(int id)
+        {
+            Movies found = _context.Movies.Find(id);
+            if (found != null)
+            {
+                _context.Movies.Remove(found);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("DisplayFavorites");
         }
     }
 }
