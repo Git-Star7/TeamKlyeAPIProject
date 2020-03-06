@@ -154,7 +154,7 @@ namespace GroupMovieAPIProject.Models
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Movies)
                     .HasForeignKey(d => d.UserId)
-                    .HasConstraintName("FK__Movies__UserID__6E01572D");
+                    .HasConstraintName("FK__Movies__UserID__6FE99F9F");
             });
 
             OnModelCreatingPartial(modelBuilder);
