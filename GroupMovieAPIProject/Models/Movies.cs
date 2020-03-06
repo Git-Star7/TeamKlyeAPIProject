@@ -3,10 +3,6 @@ using System.Collections.Generic;
 
 namespace GroupMovieAPIProject.Models
 {
-    public class TempMovie
-    {
-        public Movies Movie { get; set; }
-    }
     public partial class Movies
     {
         public int Id { get; set; }

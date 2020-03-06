@@ -24,7 +24,7 @@
     <td>@Model.Actors</td>
     <td>@Model.Director</td>
 </tr>
-    }
+    
 </table>
 <form action="../FavoriteMovies/AddToFavorites" method="post">
     <input type="hidden" name="Title" value="@Model.Title" />
@@ -33,6 +33,7 @@
     <input type="hidden" name="Released" value="@Model.Released" />
     <input type="hidden" name="Actors" value="@Model.Actors" />
     <input type="hidden" name="Director" value="@Model.Director" />
+    <input type="hidden" name="UserID" value="@ViewBag.UserId" />
     
     <input type="submit" name="submit" value="Sav as Fav" />
 
