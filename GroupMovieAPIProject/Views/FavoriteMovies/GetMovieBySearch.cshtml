@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "GetMovieBySearch";
+}
+
+@model Movies
+
+<h1>Searched Movies</h1>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Rated</th>
+        <th>Released</th>
+        <th>Actors</th>
+        <th>Director</th>
+    </tr>
+<tr>
+    <td>@Model.Title</td>
+    <td>@Model.Year</td>
+    <td>@Model.Rated</td>
+    <td>@Model.Released</td>
+    <td>@Model.Actors</td>
+    <td>@Model.Director</td>
+</tr>
+    }
+</table>
+<form action="../FavoriteMovies/AddToFavorites" method="post">
+    <input type="hidden" name="Title" value="@Model.Title" />
+    <input type="hidden" name="Year" value="@Model.Year" />
+    <input type="hidden" name="Rated" value="@Model.Rated" />
+    <input type="hidden" name="Released" value="@Model.Released" />
+    <input type="hidden" name="Actors" value="@Model.Actors" />
+    <input type="hidden" name="Director" value="@Model.Director" />
+    
+    <input type="submit" name="submit" value="Sav as Fav" />
+
+
+</form>
