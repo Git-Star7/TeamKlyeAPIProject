@@ -5,9 +5,9 @@
 
 @model Movies
 
-<h1>Searched Movies</h1>
+<h1 class="blink">Searched Movies</h1>
 
-<table>
+<table class="table table-bordered">
     <tr>
         <th>Title</th>
         <th>Year</th>
@@ -15,16 +15,18 @@
         <th>Released</th>
         <th>Actors</th>
         <th>Director</th>
+
     </tr>
-<tr>
-    <td>@Model.Title</td>
-    <td>@Model.Year</td>
-    <td>@Model.Rated</td>
-    <td>@Model.Released</td>
-    <td>@Model.Actors</td>
-    <td>@Model.Director</td>
-</tr>
-    
+    <tr>
+        <td class="title">@Model.Title</td>
+        <td class="year">@Model.Year</td>
+        <td class="rated">@Model.Rated</td>
+        <td class="released">@Model.Released</td>
+        <td class="actors">@Model.Actors</td>
+        <td class="director">@Model.Director</td>
+
+    </tr>
+
 </table>
 <form action="../FavoriteMovies/AddToFavorites" method="post">
     <input type="hidden" name="Title" value="@Model.Title" />
@@ -34,8 +36,10 @@
     <input type="hidden" name="Actors" value="@Model.Actors" />
     <input type="hidden" name="Director" value="@Model.Director" />
     <input type="hidden" name="UserID" value="@ViewBag.UserId" />
-    
-    <input type="submit" name="submit" value="Sav as Fav" />
+
+    <input type="submit" name="submit" class="btn btn-warning" value="Sav as Fav" />
 
 
 </form>
+<br />
+<a href="../FavoriteMovies/GetMovieBySearch" class="btn alert-danger">Search Again</a>

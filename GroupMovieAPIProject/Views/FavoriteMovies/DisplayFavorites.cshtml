@@ -4,7 +4,7 @@
 }
 @model List<Movies>
 
-<h1>Favorite Movies</h1>
+<h1 class="moreblink">Your Favorite Movies</h1>
 
 <table class="table table-bordered">
     <tr>
@@ -14,22 +14,27 @@
         <th>Released</th>
         <th>Actors</th>
         <th>Director</th>
+
     </tr>
+
     @foreach (Movies movie in Model)
     {
         <tr>
-            <td>@movie.Title</td>
-            <td>@movie.Year</td>
-            <td>@movie.Rated</td>
-            <td>@movie.Released</td>
-            <td>@movie.Actors</td>
-            <td>@movie.Director</td>
+            <td class="title">@movie.Title</td>
+            <td class="year">@movie.Year</td>
+            <td class="rated">@movie.Rated</td>
+            <td class="released">@movie.Released</td>
+            <td class="actors">@movie.Actors</td>
+            <td class="director">@movie.Director</td>
+
             <td>
                 <a href="../FavoriteMovies/DeleteFav?id=@movie.Id" class="btn btn-danger">Delete</a>
             </td>
         </tr>
 
     }
+
 </table>
 
-<a href="../FavoriteMovies/GetMovieBySearch" class="btn btn-outline-success">Search for another movie</a>
+
+<a href="../FavoriteMovies/GetMovieBySearch" class="btn btn-warning">Search for another movie</a>
